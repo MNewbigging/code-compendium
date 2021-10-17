@@ -40,12 +40,14 @@ export class ComponentItemDialog extends React.Component<Props> {
         <div className={'preview-container'}>{itemProps.preview}</div>
         <div className={'code-container'}>
           <div className={'html-container'}>
+            <div className={'title'}>HTML</div>
             <pre>
               <code>{itemProps.html}</code>
             </pre>
           </div>
 
           <div className={'sass-container'}>
+            <div className={'title'}>SASS</div>
             <pre>
               <code>{itemProps.sass}</code>
             </pre>
