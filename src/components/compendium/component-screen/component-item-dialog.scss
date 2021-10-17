@@ -1,17 +1,44 @@
 .component-item-dialog {
-  width: 500px;
-  height: 80vh;
+  width: 90vw !important;
+  height: 90vh;
+  padding-bottom: 0px !important;
 
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-
-  .preview-container {
-    height: 300px;
-    border-radius: 6px 6px 0px 0px;
-  }
-
-  .html-container {
+  .component-dialog-content {
     width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    .preview-container {
+      flex-shrink: 0;
+      height: 200px;
+      border-radius: 6px 6px 0px 0px;
+    }
+
+    .code-container {
+      flex: 1 1 100%;
+      overflow: hidden;
+      display: flex;
+
+      pre {
+        margin: 0;
+      }
+
+      .html-container {
+        padding: 20px;
+        min-width: 20%;
+        border-right: solid 1px black;
+        resize: horizontal;
+        overflow: auto;
+      }
+
+      .sass-container {
+        flex: 1;
+        overflow: auto;
+        min-width: 20%;
+        padding: 20px;
+      }
+    }
   }
 }

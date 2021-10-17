@@ -36,15 +36,22 @@ export class ComponentItemDialog extends React.Component<Props> {
 
   private getDialogContent(itemProps: ComponentItemProps) {
     return (
-      <>
+      <div className={'component-dialog-content'}>
         <div className={'preview-container'}>{itemProps.preview}</div>
-        <div className={'html-container'}>
-          <pre>
-            <code>{itemProps.html}</code>
-          </pre>
+        <div className={'code-container'}>
+          <div className={'html-container'}>
+            <pre>
+              <code>{itemProps.html}</code>
+            </pre>
+          </div>
+
+          <div className={'sass-container'}>
+            <pre>
+              <code>{itemProps.sass}</code>
+            </pre>
+          </div>
         </div>
-        <div className={'sass-container'}></div>
-      </>
+      </div>
     );
   }
 }

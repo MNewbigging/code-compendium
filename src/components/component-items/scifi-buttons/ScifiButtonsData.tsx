@@ -2,10 +2,9 @@ import React from 'react';
 import { ComponentItemProps } from '../../compendium/component-screen/ComponentItem';
 import { ScifiButtonsPreview } from './ScifiButtonsPreview';
 
-const scifiButtonsHtml = "<button className={'scifi-button white'}>WHITE</button>";
+const scifiButtonsHtml = '<button className={"scifi-button white"}>WHITE</button>';
 
-const scifiButtonsSass = `
-$color-btn-white-shadow: rgba(255, 255, 255, 0.3);
+const scifiButtonsSass = `$color-btn-white-shadow: rgba(255, 255, 255, 0.3);
 $color-btn-white-border: #fff;
 
 $color-btn-blue-shadow: rgba(0, 170, 170, 0.5);
