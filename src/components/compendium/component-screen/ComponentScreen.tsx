@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { ScifiButtonsPreview } from '../../component-items/scifi-buttons/ScifiButtonsPreview';
 import { ComponentItem } from './ComponentItem';
 import { ComponentItemDialog } from './ComponentItemDialog';
 import { CompendiumState } from '../../../state/CompendiumState';
+import { scifiButtonItemProps } from '../../component-items/scifi-buttons/ScifiButtonsData';
 
 import './component-screen.scss';
 
@@ -21,9 +21,8 @@ export class ComponentScreen extends React.Component<Props> {
           <ComponentItemDialog compendiumState={compendiumState} />
 
           <ComponentItem
-            title={'Sci-fi buttons'}
-            preview={<ScifiButtonsPreview />}
-            onClick={compendiumState.openComponentDialog}
+            {...scifiButtonItemProps}
+            onClick={() => compendiumState.openComponentDialog(scifiButtonItemProps)}
           />
         </div>
       </div>

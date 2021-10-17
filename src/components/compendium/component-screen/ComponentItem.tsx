@@ -3,9 +3,14 @@ import React from 'react';
 
 import './component-item.scss';
 
-interface Props {
+export interface ComponentItemProps {
   title: string;
   preview: JSX.Element;
+  html: string;
+  sass: string;
+}
+
+interface Props extends ComponentItemProps {
   onClick: () => void;
 }
 

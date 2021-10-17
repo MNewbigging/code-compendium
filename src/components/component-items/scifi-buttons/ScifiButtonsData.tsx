@@ -1,6 +1,10 @@
-export const scifiButtonsHtml = "<button className={'scifi-button white'}>WHITE</button>";
+import React from 'react';
+import { ComponentItemProps } from '../../compendium/component-screen/ComponentItem';
+import { ScifiButtonsPreview } from './ScifiButtonsPreview';
 
-export const scifiButtonsSass = `
+const scifiButtonsHtml = "<button className={'scifi-button white'}>WHITE</button>";
+
+const scifiButtonsSass = `
 $color-btn-white-shadow: rgba(255, 255, 255, 0.3);
 $color-btn-white-border: #fff;
 
@@ -56,3 +60,10 @@ $color-btn-red-border: #fb5454;
     }
   }
 `;
+
+export const scifiButtonItemProps: ComponentItemProps = {
+  title: 'Sci-fi buttons',
+  preview: <ScifiButtonsPreview />,
+  html: scifiButtonsHtml,
+  sass: scifiButtonsSass,
+};
