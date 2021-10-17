@@ -3,6 +3,8 @@ import React from 'react';
 
 import { AppScreen, AppState } from '../../state/AppState';
 import { CompendiumNavbar } from './CompendiumNavbar';
+import { ComponentScreen } from './component-screen/ComponentScreen';
+import { CodeSnippetScreen } from './code-snippet-screen/CodeSnippetScreen';
 
 import './compendium.scss';
 
@@ -23,10 +25,10 @@ export class Compendium extends React.PureComponent {
   private getScreen() {
     switch (this.appState.screen) {
       case AppScreen.COMPONENTS:
-        return <div>components</div>;
+        return <ComponentScreen />;
 
       case AppScreen.CODE:
-        return <div>code</div>;
+        return <CodeSnippetScreen />;
     }
   }
 }
