@@ -1,7 +1,7 @@
 import { observer } from 'mobx-react';
 import React from 'react';
 
-import { AppScreen, AppState } from '../../state/AppState';
+import { CompendiumScreen, CompendiumState } from '../../state/CompendiumState';
 import { CompendiumNavbar } from './CompendiumNavbar';
 import { ComponentScreen } from './component-screen/ComponentScreen';
 import { CodeSnippetScreen } from './code-snippet-screen/CodeSnippetScreen';
@@ -10,7 +10,7 @@ import './compendium.scss';
 
 @observer
 export class Compendium extends React.PureComponent {
-  private readonly appState = new AppState();
+  private readonly appState = new CompendiumState();
   public render() {
     return (
       <div className={'compendium'}>
@@ -24,10 +24,10 @@ export class Compendium extends React.PureComponent {
 
   private getScreen() {
     switch (this.appState.screen) {
-      case AppScreen.COMPONENTS:
+      case CompendiumScreen.COMPONENTS:
         return <ComponentScreen />;
 
-      case AppScreen.CODE:
+      case CompendiumScreen.CODE:
         return <CodeSnippetScreen />;
     }
   }

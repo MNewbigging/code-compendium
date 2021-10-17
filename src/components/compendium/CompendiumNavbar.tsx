@@ -2,10 +2,10 @@ import { Alignment, Button, Navbar } from '@blueprintjs/core';
 import { observer } from 'mobx-react';
 import React from 'react';
 
-import { AppScreen, AppState } from '../../state/AppState';
+import { CompendiumScreen, CompendiumState } from '../../state/CompendiumState';
 
 interface Props {
-  appState: AppState;
+  appState: CompendiumState;
 }
 
 @observer
@@ -22,15 +22,15 @@ export class CompendiumNavbar extends React.Component<Props> {
             icon={'cube'}
             text={'Components'}
             minimal
-            onClick={() => appState.toScreen(AppScreen.COMPONENTS)}
-            outlined={appState.screen === AppScreen.COMPONENTS}
+            onClick={() => appState.toScreen(CompendiumScreen.COMPONENTS)}
+            outlined={appState.screen === CompendiumScreen.COMPONENTS}
           />
           <Button
             icon={'code-block'}
             text={'Code snippets'}
             minimal
-            onClick={() => appState.toScreen(AppScreen.CODE)}
-            outlined={appState.screen === AppScreen.CODE}
+            onClick={() => appState.toScreen(CompendiumScreen.CODE)}
+            outlined={appState.screen === CompendiumScreen.CODE}
           />
         </Navbar.Group>
       </Navbar>
