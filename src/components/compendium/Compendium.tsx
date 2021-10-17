@@ -25,7 +25,7 @@ export class Compendium extends React.PureComponent {
   private getScreen() {
     switch (this.appState.screen) {
       case CompendiumScreen.COMPONENTS:
-        return <ComponentScreen />;
+        return <ComponentScreen compendiumState={this.appState} />;
 
       case CompendiumScreen.CODE:
         return <CodeSnippetScreen />;

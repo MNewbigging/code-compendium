@@ -6,14 +6,15 @@ import './component-item.scss';
 interface Props {
   title: string;
   preview: JSX.Element;
+  onClick: () => void;
 }
 
 export class ComponentItem extends React.Component<Props> {
   public render() {
-    const { title, preview } = this.props;
+    const { title, preview, onClick } = this.props;
 
     return (
-      <Card className={'component-item'} interactive>
+      <Card className={'component-item'} interactive onClick={() => onClick()}>
         <div className={'title'}>{title}</div>
         <div className={'preview'}>{preview}</div>
       </Card>
