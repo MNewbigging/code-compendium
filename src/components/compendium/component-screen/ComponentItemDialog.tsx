@@ -1,13 +1,6 @@
 import { Dialog } from '@blueprintjs/core';
 import { observer } from 'mobx-react';
 import React from 'react';
-import hljs from 'highlight.js/lib/core';
-import xml from 'highlight.js/lib/languages/xml';
-hljs.registerLanguage('xml', xml);
-hljs.initHighlightingOnLoad();
-
-import 'highlight.js/styles/github.css';
-import 'highlight.js/styles/default.css';
 
 import { CompendiumState } from '../../../state/CompendiumState';
 import { ComponentItemProps } from './ComponentItem';
@@ -42,8 +35,6 @@ export class ComponentItemDialog extends React.Component<Props> {
   }
 
   private getDialogContent(itemProps: ComponentItemProps) {
-    const hlHtml = hljs.highlight(itemProps.html, { language: 'xml' }).value;
-
     return (
       <>
         <div className={'preview-container'}>{itemProps.preview}</div>
