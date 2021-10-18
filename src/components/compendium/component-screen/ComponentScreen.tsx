@@ -6,6 +6,7 @@ import { CompendiumState } from '../../../state/CompendiumState';
 import { scifiButtonItemProps } from '../../component-items/scifi-buttons/ScifiButtonsData';
 
 import './component-screen.scss';
+import { parallaxStarsItemProps } from '../../component-items/parallax-stars/ParallaxStarsData';
 
 interface Props {
   compendiumState: CompendiumState;
@@ -22,6 +23,10 @@ export class ComponentScreen extends React.Component<Props> {
           <ComponentItem
             {...scifiButtonItemProps}
             onClick={() => compendiumState.openComponentDialog(scifiButtonItemProps)}
+          />
+          <ComponentItem
+            {...parallaxStarsItemProps}
+            onClick={() => compendiumState.openComponentDialog(parallaxStarsItemProps)}
           />
         </div>
       </div>
