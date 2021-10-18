@@ -14,5 +14,6 @@ const randomIdCode = `public static createId(length: number = 4) {
 
 export const randomIdProps: CodeSnippetItemProps = {
   title: 'Random id',
+  description: 'Creates a random string id, optional length',
   code: randomIdCode,
 };

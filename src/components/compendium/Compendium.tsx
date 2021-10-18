@@ -28,7 +28,7 @@ export class Compendium extends React.PureComponent {
         return <ComponentScreen compendiumState={this.appState} />;
 
       case CompendiumScreen.CODE:
-        return <CodeSnippetScreen />;
+        return <CodeSnippetScreen compendiumState={this.appState} />;
     }
   }
 }

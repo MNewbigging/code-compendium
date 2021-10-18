@@ -14,17 +14,21 @@ import './code-snippet-item.scss';
 
 export interface CodeSnippetItemProps {
   title: string;
+  description: string;
   code: string;
 }
 
+interface Props extends CodeSnippetItemProps {
+  onCopy: () => void;
+}
+
 @observer
-export class CodeSnippetItem extends React.Component<CodeSnippetItemProps> {
+export class CodeSnippetItem extends React.Component<Props> {
   @observable private maximised = false;
 
   public render() {
-    const { title, code } = this.props;
+    const { title, description, code, onCopy } = this.props;
 
-    console.log('max', this.maximised);
     const maximiseClass = this.maximised ? 'maximise' : 'minimise';
 
     return (
@@ -32,9 +36,11 @@ export class CodeSnippetItem extends React.Component<CodeSnippetItemProps> {
         <div className={'title-bar'}>
           <div className={'title'}>{title}</div>
           <div className={'actions'}>
+            <Button icon={'clipboard'} onClick={onCopy} />
             <Button icon={this.maximised ? 'minimize' : 'maximize'} onClick={this.toggleSize} />
           </div>
         </div>
+        <div className={'description-bar'}>{description}</div>
         <div className={'code-area'}>
           <SyntaxHighlighter language={'typescript'} style={tomorrowNightEighties}>
             {code}
