@@ -1,7 +1,7 @@
 @function multiple-box-shadow($n, $col) {
-  $value: '#{random(2000)}px #{random(2000)}px #{$col}';
+  $value: '#{random(2500)}px #{random(2500)}px #{$col}';
   @for $i from 2 through $n {
-    $value: '#{$value} , #{random(2000)}px #{random(2000)}px #{$col}';
+    $value: '#{$value} , #{random(2500)}px #{random(2500)}px #{$col}';
   }
   @return unquote($value);
 }
@@ -36,6 +36,7 @@ $shadows-large-red: multiple-box-shadow(25, '#f04a4a');
   background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
   color: white;
   overflow: hidden;
+  border-radius: inherit;
 
   .stars-small {
     width: 1px;

@@ -3,16 +3,16 @@ import { ComponentItemProps } from '../../compendium/component-screen/ComponentI
 import { ParallaxStarsPreview } from './ParallaxStarsPreview';
 
 const parallaxStarsHtml = `<div className={'background'}>
-      <div className={'stars-small'}></div>
-      <div className={'stars-small red'}></div>
-      <div className={'stars-small blue'}></div>
-      <div className={'stars-med'}></div>
-      <div className={'stars-med red'}></div>
-      <div className={'stars-med blue'}></div>
-      <div className={'stars-large'}></div>
-      <div className={'stars-large red'}></div>
-      <div className={'stars-large blue'}></div>
-    </div>`;
+  <div className={'stars-small'}></div>
+  <div className={'stars-small red'}></div>
+  <div className={'stars-small blue'}></div>
+  <div className={'stars-med'}></div>
+  <div className={'stars-med red'}></div>
+  <div className={'stars-med blue'}></div>
+  <div className={'stars-large'}></div>
+  <div className={'stars-large red'}></div>
+  <div className={'stars-large blue'}></div>
+</div>`;
 
 const parallaxStarsScss = `@function multiple-box-shadow($n, $col) {
   $value: '#{random(2000)}px #{random(2000)}px #{$col}';
