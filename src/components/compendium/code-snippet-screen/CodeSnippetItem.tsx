@@ -2,7 +2,11 @@ import { Card } from '@blueprintjs/core';
 import React from 'react';
 
 import SyntaxHighlighter from 'react-syntax-highlighter';
-import { atomOneDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import {
+  atomOneDark,
+  nightOwl,
+  tomorrowNightEighties,
+} from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
 import './code-snippet-item.scss';
 
@@ -19,7 +23,7 @@ export class CodeSnippetItem extends React.Component<CodeSnippetItemProps> {
       <Card className={'code-snippet-item'}>
         <div className={'title'}>{title}</div>
         <div className={'code-area'}>
-          <SyntaxHighlighter language={'typescript'} style={atomOneDark}>
+          <SyntaxHighlighter language={'typescript'} style={tomorrowNightEighties}>
             {code}
           </SyntaxHighlighter>
         </div>

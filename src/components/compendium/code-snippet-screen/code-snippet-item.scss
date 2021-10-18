@@ -1,8 +1,7 @@
 .code-snippet-item {
   flex: 50%;
-  // height: fit-content;
-  //max-height: 300px;
-  height: max-content;
+  height: 300px;
+  overflow: hidden;
   padding: 0px !important;
 
   display: flex;
@@ -16,9 +15,16 @@
   }
 
   .code-area {
+    flex: 1;
     width: 100%;
+    overflow: auto;
+    background-color: #2d2d2d;
+    border-radius: 0px 0px 3px 3px;
+
+    display: flex;
 
     pre {
+      flex: 1;
       margin: 0;
       padding: 12px !important;
       border-radius: 0px 0px 3px 3px;
