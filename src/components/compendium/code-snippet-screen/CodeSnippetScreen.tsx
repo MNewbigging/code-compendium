@@ -12,6 +12,7 @@ export class CodeSnippetScreen extends React.Component {
       <div className={'code-snippet-screen'}>
         <div className={'code-snippet-items-list'}>
           <CodeSnippetItem {...randomIdProps} />
+          <CodeSnippetItem {...randomIdProps} />
           <CodeSnippetItem {...testSnippetProps} />
           <CodeSnippetItem {...testSnippetProps} />
           <CodeSnippetItem {...testSnippetProps} />
