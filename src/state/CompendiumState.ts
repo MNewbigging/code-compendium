@@ -8,7 +8,7 @@ export enum CompendiumScreen {
 }
 
 export class CompendiumState {
-  @observable public screen = CompendiumScreen.COMPONENTS;
+  @observable public screen = CompendiumScreen.CODE;
   @observable public componentDialogOpen = false;
   public componentItemProps?: ComponentItemProps;
 

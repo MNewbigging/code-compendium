@@ -17,9 +17,8 @@ export class ComponentScreen extends React.Component<Props> {
 
     return (
       <div className={'component-screen'}>
+        <ComponentItemDialog compendiumState={compendiumState} />
         <div className={'component-items-list'}>
-          <ComponentItemDialog compendiumState={compendiumState} />
-
           <ComponentItem
             {...scifiButtonItemProps}
             onClick={() => compendiumState.openComponentDialog(scifiButtonItemProps)}
