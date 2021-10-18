@@ -1,4 +1,4 @@
-import { Dialog } from '@blueprintjs/core';
+import { Button, Dialog, Icon } from '@blueprintjs/core';
 import { observer } from 'mobx-react';
 import React from 'react';
 
@@ -39,21 +39,39 @@ export class ComponentItemDialog extends React.Component<Props> {
   }
 
   private getDialogContent(itemProps: ComponentItemProps) {
+    const { compendiumState } = this.props;
+
     return (
       <div className={'component-dialog-content'}>
         <div className={'preview-container'}>{itemProps.preview}</div>
         <div className={'code-container'}>
           <div className={'html-container'}>
-            <div className={'title'}>HTML</div>
+            <div className={'title-bar'}>
+              <div className={'title'}>HTML</div>
+              <div className={'actions'}>
+                <Button
+                  icon={'clipboard'}
+                  onClick={() => compendiumState.copyToClipboard(itemProps.html)}
+                />
+              </div>
+            </div>
             <SyntaxHighlighter language={'xml'} style={atomOneDark}>
               {itemProps.html}
             </SyntaxHighlighter>
           </div>
 
           <div className={'sass-container'}>
-            <div className={'title'}>SASS</div>
+            <div className={'title-bar'}>
+              <div className={'title'}>SCSS</div>
+              <div className={'actions'}>
+                <Button
+                  icon={'clipboard'}
+                  onClick={() => compendiumState.copyToClipboard(itemProps.scss)}
+                />
+              </div>
+            </div>
             <SyntaxHighlighter language={'scss'} style={tomorrowNightEighties}>
-              {itemProps.sass}
+              {itemProps.scss}
             </SyntaxHighlighter>
           </div>
         </div>

@@ -64,5 +64,5 @@ export const scifiButtonItemProps: ComponentItemProps = {
   title: 'Sci-fi buttons',
   preview: <ScifiButtonsPreview />,
   html: scifiButtonsHtml,
-  sass: scifiButtonsSass,
+  scss: scifiButtonsSass,
 };

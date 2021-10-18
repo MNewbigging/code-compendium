@@ -7,7 +7,7 @@ export interface ComponentItemProps {
   title: string;
   preview: JSX.Element;
   html: string;
-  sass: string;
+  scss: string;
 }
 
 interface Props extends ComponentItemProps {
