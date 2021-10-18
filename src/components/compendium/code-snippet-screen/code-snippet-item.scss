@@ -1,17 +1,42 @@
 .code-snippet-item {
-  flex: 50%;
+  // flex: 1 1 40%;
   height: 300px;
   overflow: hidden;
   padding: 0px !important;
+  transition: all 1s linear !important;
 
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
 
-  .title {
-    font-weight: bold;
-    font-size: 1.5em;
+  &.maximise {
+    flex: 1 1 100%;
+    height: 600px;
+    //    max-width: 100%;
+  }
+
+  &.minimise {
+    // flex-shrink: 200;
+    flex: 1 1 40%;
+  }
+
+  .title-bar {
     padding: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .title {
+      font-weight: bold;
+      font-size: 1.5em;
+    }
+
+    .actions {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
   }
 
   .code-area {
