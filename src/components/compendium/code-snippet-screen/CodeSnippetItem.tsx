@@ -42,7 +42,7 @@ export class CodeSnippetItem extends React.Component<Props> {
         </div>
         <div className={'description-bar'}>{description}</div>
         <div className={'code-area'}>
-          <SyntaxHighlighter language={'typescript'} style={tomorrowNightEighties}>
+          <SyntaxHighlighter language={'typescript'} style={atomOneDark}>
             {code}
           </SyntaxHighlighter>
         </div>
