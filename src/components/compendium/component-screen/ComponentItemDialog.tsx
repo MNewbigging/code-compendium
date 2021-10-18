@@ -2,6 +2,10 @@ import { Dialog } from '@blueprintjs/core';
 import { observer } from 'mobx-react';
 import React from 'react';
 
+import SyntaxHighlighter from 'react-syntax-highlighter';
+import { atomOneDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import { tomorrowNightEighties } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+
 import { CompendiumState } from '../../../state/CompendiumState';
 import { ComponentItemProps } from './ComponentItem';
 
@@ -41,16 +45,16 @@ export class ComponentItemDialog extends React.Component<Props> {
         <div className={'code-container'}>
           <div className={'html-container'}>
             <div className={'title'}>HTML</div>
-            <pre>
-              <code>{itemProps.html}</code>
-            </pre>
+            <SyntaxHighlighter language={'xml'} style={atomOneDark}>
+              {itemProps.html}
+            </SyntaxHighlighter>
           </div>
 
           <div className={'sass-container'}>
             <div className={'title'}>SASS</div>
-            <pre>
-              <code>{itemProps.sass}</code>
-            </pre>
+            <SyntaxHighlighter language={'scss'} style={tomorrowNightEighties}>
+              {itemProps.sass}
+            </SyntaxHighlighter>
           </div>
         </div>
       </div>
