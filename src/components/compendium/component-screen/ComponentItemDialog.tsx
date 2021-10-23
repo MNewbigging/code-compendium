@@ -55,7 +55,7 @@ export class ComponentItemDialog extends React.Component<Props> {
                 />
               </div>
             </div>
-            <SyntaxHighlighter language={'xml'} style={atomOneDark}>
+            <SyntaxHighlighter language={'javascript'} style={atomOneDark}>
               {itemProps.html}
             </SyntaxHighlighter>
           </div>
