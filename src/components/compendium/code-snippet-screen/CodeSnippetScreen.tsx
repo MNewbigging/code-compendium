@@ -1,13 +1,15 @@
+import './code-snippet-screen.scss';
+
 import React from 'react';
 
 import { CodeSnippetItem } from './CodeSnippetItem';
-import { randomIdProps } from '../../code-snippet-items/RandomId';
 import { CompendiumState } from '../../../state/CompendiumState';
-import { enumReverseStrMapProps } from '../../code-snippet-items/EnumReverseStrMap';
 import { basicKeyboardObserverProps } from '../../code-snippet-items/BasicKeyboardObserver';
-
-import './code-snippet-screen.scss';
+import { canvasListenerProps } from '../../code-snippet-items/CanvasListener';
+import { enumReverseStrMapProps } from '../../code-snippet-items/EnumReverseStrMap';
 import { eventListenerProps } from '../../code-snippet-items/EventListener';
+import { mouseListenerProps } from '../../code-snippet-items/MouseListener';
+import { randomIdProps } from '../../code-snippet-items/RandomId';
 
 interface Props {
   compendiumState: CompendiumState;
@@ -35,6 +37,14 @@ export class CodeSnippetScreen extends React.Component<Props> {
           <CodeSnippetItem
             {...eventListenerProps}
             onCopy={() => compendiumState.copyToClipboard(eventListenerProps.code)}
+          />
+          <CodeSnippetItem
+            {...mouseListenerProps}
+            onCopy={() => compendiumState.copyToClipboard(mouseListenerProps.code)}
+          />
+          <CodeSnippetItem
+            {...canvasListenerProps}
+            onCopy={() => compendiumState.copyToClipboard(canvasListenerProps.code)}
           />
         </div>
       </div>

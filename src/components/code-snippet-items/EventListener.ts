@@ -6,37 +6,49 @@ const eventListenerCode = `export enum GameEventType {
   EVENT_THREE = 'event-three'
 }
 
-export type GameEvent =
-  | { type: GameEventType.EVENT_ONE; parameter: string }
-  | { type: GameEventType.EVENT_TWO; anotherParam: SomeType }
-  | { type: GameEventType.EVENT_THREE; };
+export type GameEvent<T extends GameEventType> = Extract<
+  | { type: GameEventType.EVENT_ONE; someString: string }
+  | { type: GameEventType.EVENT_TWO; someNumber: number, someBools: boolean[] }
+  | { type: GameEventType.EVENT_THREE; },
+  { type: T }
+>;
 
-type GameEventListener = (event: GameEvent) => void;
+export type GameEventCallback<T extends GameEventType> = (event: GameEvent<T>) => void;
 
-class GameObserver {
-  private listenerMap = new Map<GameEventType, GameEventListener[]>();
+export class GameEventListener {
+  private callbacks = new Map<GameEventType, GameEventCallback<any>[]>();
 
-  public addGameEventListener(listener: GameEventListener, eventType = GameEventType.ANY) {
-    const existing = this.listenerMap.get(eventType) ?? [];
-    existing.push(listener);
-    this.listenerMap.set(eventType, existing);
+  public on<T extends GameEventType>(eventType: GameEventType, callback: GameEventCallback<T>) {
+    const existing = this.callbacks.get(eventType) ?? [];
+    existing.push(callback);
+    this.callbacks.set(eventType, existing);
   }
 
-  public removeGameEventListener(listener: GameEventListener, eventType = GameEventType.ANY) {
-    let existing = this.listenerMap.get(eventType) ?? [];
+  public off<T extends GameEventType>(eventType: GameEventType, callback: GameEventCallback<T>) {
+    let existing = this.callbacks.get(eventType) ?? [];
     if (existing.length) {
-      existing = existing.filter((l) => l !== listener);
-      this.listenerMap.set(eventType, existing);
+      existing = existing.filter((cb) => cb !== callback);
+      this.callbacks.set(eventType, existing);
     }
   }
 
-  public fireEvent(event: GameEvent) {
-    const listeners = this.listenerMap.get(event.type) ?? [];
-    listeners.forEach((l) => l(event));
+  public fireEvent<T extends GameEventType>(event: GameEvent<T>) {
+    const listeners = this.callbacks.get(event.type) ?? [];
+    listeners.forEach((cb) => cb(event));
   }
 }
 
-export const gameObserver = new GameObserver();`;
+// Usage
+const eventListener = new GameEventListener();
+eventListener.on(GameEventType.EVENT_ONE, (event: GameEvent<GameEventType.EVENT_ONE>) => console.log(event.someString));
+
+const callback = (event: GameEvent<GameEventType.EVENT_TWO>) => {
+  // Direct access to event props of given type
+  console.log(event.someNumber);
+  console.log(event.someBools);
+};
+eventListener.on(GameEventType.EVENT_TWO, callback);
+`;
 
 export const eventListenerProps: CodeSnippetItemProps = {
   title: 'Event listener',
